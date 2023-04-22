@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100vh;
+	background-color: azure;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-family: "Roboto", sans-serif;
+}
+
+.encabezado {
+	background-color: #e4dccf;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.encabezado img {
+	margin: 2px 0;
+	width: 200px;
+}
+
+.contenedor {
+	display: flex;
+	background-color: #f5f2ebfa;
+	flex-grow: 1;
+}
+.contenedor .estructura_contenido {
+	width: 100%;
+	background-color: white;
+	margin: 30px;
+	border-radius: 15px;
+}
+
+.pie_pagina {
+	background-color: #002b5b;
+	text-align: center;
+}
+.pie_pagina p {
+	color: white;
+	font-size: 1.2rem;
+	padding: 8px 0;
+}
