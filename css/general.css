@@ -33,9 +33,12 @@ body {
 }
 .contenedor .estructura_contenido {
 	width: 100%;
+}
+.contenedor_gral {
 	background-color: white;
-	margin: 30px;
+	margin: 15px;
 	border-radius: 15px;
+	padding: 10px;
 }
 
 .pie_pagina {
