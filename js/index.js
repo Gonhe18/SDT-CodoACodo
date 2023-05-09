@@ -13,8 +13,8 @@ window.addEventListener("load", (e) => {
 			"<div class='sin_tramites'><span class='msj_sin_tramites'>No hay trámites<span></div>";
 	} else {
 		let lista_tramites = JSON.parse(TRAMITES);
-
 		lista_tramites.forEach((tramite) => {
+			btnSegunEstado(tramite);
 			body_home.innerHTML =
 				body_home.innerHTML +
 				`
@@ -23,23 +23,9 @@ window.addEventListener("load", (e) => {
 					<td>${tramite.nombre} ${tramite.apellido}</td>
 					<td>${tramite.fecha_actualizacion}</td>
 					<td>${tramite.estado}</td>
-					<td class="icon_acciones" id="tramite${tramite.id}">
-						<button class="btn_icon" onclick='cambiarEstado(${tramite.id})'>
-							<box-icon
-								name="transfer-alt"
-								color="green"
-								title="Cambiar de estado"
-							></box-icon>
-						</button>
-						<button class="btn_icon" onclick='eliminarTramite(${tramite.id})'>
-						<box-icon
-							type="solid"
-							name="trash"
-							color="red"
-							title="Eliminar trámite"
-						></box-icon>
-						</button>
-					</td>
+					<td class="icon_acciones" id="tramite${tramite.id}">` +
+				btnSegunEstado(tramite) +
+				`</td>
 				</tr>
 			`;
 		});
@@ -50,19 +36,99 @@ window.addEventListener("load", (e) => {
 });
 
 const eliminarTramite = (id_tramite) => {
-	const TRAMITES = localStorage.getItem("tramites");
-	let lista_tramites = JSON.parse(TRAMITES);
+	Swal.fire({
+		title: "Eliminar trámite?",
+		icon: "question",
+		showConfirmButton: true,
+		confirmButtonColor: "#379237",
+		confirmButtonText: "Confirmar",
+		showCancelButton: true,
+		cancelButtonColor: "#FF1E1E",
+		cancelButtonText: `Cancelar`,
+	}).then((result) => {
+		if (result.isConfirmed) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: "top-end",
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				didOpen: (toast) => {
+					toast.addEventListener("mouseenter", Swal.stopTimer);
+					toast.addEventListener("mouseleave", Swal.resumeTimer);
+				},
+			});
+			Toast.fire({
+				icon: "success",
+				title: "Trámite eliminado exitosamente",
+			});
 
-	lista_tramites.forEach((tramite) => {
-		if (tramite.id == id_tramite) {
-			lista_tramites.splice(lista_tramites.indexOf(tramite), 1);
+			const TRAMITES = localStorage.getItem("tramites");
+			let lista_tramites = JSON.parse(TRAMITES);
+
+			lista_tramites.forEach((tramite) => {
+				if (tramite.id == id_tramite) {
+					lista_tramites.splice(lista_tramites.indexOf(tramite), 1);
+				}
+			});
+
+			if (lista_tramites.length > 0) {
+				localStorage.setItem("tramites", JSON.stringify(lista_tramites));
+			} else {
+				localStorage.removeItem("tramites");
+			}
+			setTimeout(() => {
+				location.href = "/index.html";
+			}, 1200);
 		}
 	});
-	localStorage.setItem("tramites", JSON.stringify(lista_tramites));
-	location.href = "/index.html";
 };
 
 const cambiarEstado = (id_tramite) => {
 	localStorage.setItem("id_tramite", id_tramite);
 	location.href = "/pages/cambio_estado.html";
+};
+
+const btnSegunEstado = (tramite) => {
+	let btn = "";
+
+	if (tramite.estado == "pendiente") {
+		btn = `<button class="btn_icon" onclick='cambiarEstado(${tramite.id})'>
+						<box-icon
+							name="transfer-alt"
+							color="green"
+							title="Cambiar de estado"
+						></box-icon>
+					</button>
+					<button class="btn_icon" onclick='eliminarTramite(${tramite.id})'>
+					<box-icon
+						type="solid"
+						name="trash"
+						color="red"
+						title="Eliminar trámite"
+					></box-icon>
+				</button>`;
+	} else {
+		let { motivo_actualizacion, descripcion_actualizacion } = tramite;
+
+		if (tramite.estado == "aprobado") {
+			btn = `<button class="btn_icon" onclick='resolucionTramite("${motivo_actualizacion}","${descripcion_actualizacion}")'>
+						<box-icon type='solid' name='check-circle' color='green' title='Motivo aprobación'></box-icon>
+					</button>`;
+		} else {
+			btn = `<button class="btn_icon" onclick='resolucionTramite("${motivo_actualizacion}","${descripcion_actualizacion}")'>
+						<box-icon type='solid' name='x-circle' color='red' title='Motivo rechazo'></box-icon>
+					 </button>`;
+		}
+	}
+	return btn;
+};
+
+const resolucionTramite = (motivo, descripcion) => {
+	Swal.fire({
+		title: `${motivo}`,
+		text: `${descripcion}`,
+		confirmButtonColor: "#3085d6",
+		confirmButtonText: "Aceptar",
+	});
 };
