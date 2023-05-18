@@ -1,5 +1,5 @@
 //CREAR NUEVO TRÁMITE
-import { formatoFecha } from "./extras.js";
+import { formatoFecha } from "extras.js";
 
 let form_nuevo = document.getElementById("form_nuevo");
 

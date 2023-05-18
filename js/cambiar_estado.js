@@ -1,4 +1,4 @@
-import { formatoFecha } from "./extras.js";
+import { formatoFecha } from "extras.js";
 
 const form_cambio_estado = document.getElementById("form_cambio_estado");
 const ID_TRAMITE = localStorage.getItem("id_tramite");

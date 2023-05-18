@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="\css\general.css" />
 		<!-- CSS Propio de esta página -->
 		<link rel="stylesheet" href="\css\contacto.css" />
+		
 	</head>
 	<body>
 		<header class="encabezado">
@@ -20,15 +21,126 @@
 				<a href="/pages/contacto.html" class="btn_contacto">Contacto</a>
 			</div>
 		</header>
+
 		<main class="contenedor">
+
 			<section class="estructura_contenido">
+
 				<div class="contenedor_gral">
-					<!-- ACÁ VA TODO EL CONTENIDO RELACIONADO A LA PÁGINA -->
+
+				 <h1 class="tit_principal"> Contactos </h1>
+
+					<form class="contenedor_form" id="form_nuevo" action="https://formspree.io/f/mwkjzzvq" method="POST"> 
+
+					   <div class="bloque_datos">
+						   <div class="bloque_campos" id="grupo_apellido">
+						       <label class= "label_form" for="apellido">Apellido:</label>
+						       <br>
+							   <div class='form__grupo-input'>
+						          <input type="text" name="apellido" id="apellido" class="input_form" placeholder="Ingrese su apellido..">
+						          <i class='form__validacion-estado fas fa-times-circle'></i>
+							      <br>
+								</div>
+								<p class='form__input-error'><b>Complete el campo correctamente!</b></p>
+						   </div>
+
+						   <div class="bloque_campos" id="grupo_nombre">
+						       <label class= "label_form" for="nombre">Nombre:</label>
+						       <br>
+							   <div class='form__grupo-input'>
+						         <input type="text" name="nombre" id="nombre" class= "input_form" placeholder="Ingrese su nombre..">
+						         <i class='form__validacion-estado fas fa-times-circle'></i>
+							     <br>
+								</div>
+								<p class='form__input-error'><b>Complete el campo correctamente!</b></p>
+						   </div>
+
+					      <div class="bloque_campos" id="grupo_email">
+						      <label class= "label_form" for="email">Email:</label>
+						      <br>
+							  <div class='form__grupo-input'>
+						          <input type="email" name="email" id="email" class= "input_form"  placeholder="Ingrese su email..">
+						          <i class='form__validacion-estado fas fa-times-circle'></i>
+							      <br>
+								</div>
+								<p class='form__input-error'><b>Complete el campo correctamente!</b></p>
+						  </div>
+						  <div class="bloque_campos" id="grupo_tel">
+							<label class= "label_form" for="tel">N° de tel:</label>
+							<br>
+							<div class='form__grupo-input'>
+								<input type="tel" name="tel" id="tel" class= "input_form"  placeholder="Ingrese su n° de telefono..">
+								<i class='form__validacion-estado fas fa-times-circle'></i>
+								<br>
+							  </div>
+							  <p class='form__input-error'><b>Complete el campo correctamente!</b></p>
+						  </div>
+					 </div>
+
+					  <div class="bloque_descripcion">
+						  <div class="bloque_campos" id="grupo_tramite">
+							  <label class= "label_form" for="tramite">N° de trámite: </label>
+							  <br>
+							  <div class='form__grupo-input'>
+							      <input type="texto" name="tramite" id="tramite" class= "input_form"  placeholder="Ingrese el n° de trámite">
+							      <i class='form__validacion-estado fas fa-times-circle'></i>
+							      <br>
+							 </div>
+							   <p class='form__input-error'><b>Complete el campo correctamente!</b></p>
+					      </div>
+						   
+						 <div class="bloque_campos" id="grupo_asunto">
+							   <label class= "label_form" for="asunto">Asunto: </label>
+							   <br>
+							   <div class='form__grupo-input'>
+							      <input type="text" name="asunto" id="asunto" class= "input_form"  placeholder="Asunto..">
+								  <i class='form__validacion-estado fas fa-times-circle'></i>
+							      <br>
+								</div>
+								<p class='form__input-error'><b>Complete el campo!</b></p>
+						 </div>
+					
+						  <div class="bloque_campos" id="grupo_comentario">
+						     <label class= "label_form" for="comentario"> Comentario </label>
+						     <br>
+							  <div class='form__grupo-input'>
+						          <textarea name="comentario" id="comentario" cols="30" rows="10" class= "input_form"  placeholder="Ingrese aquí su mensaje.."></textarea>
+								  <i class='form__validacion-estado fas fa-times-circle'></i>
+								  <br>
+							  </div>
+							  <p class='form__input-error'><b>Complete el campo!</b></p>
+						  </div>
+						
+					  </div>
+
+					  <div class="form_msje" id="form_msje">
+						  <p><i class="fas fa-exclamation-triangle"></i> <b>ERROR:</b> Por favor rellene el formulario...</p>
+					  </div>
+
+
+					  <div class="btn_form">
+						  <button type='submit' class="btn_guardar">
+							   Enviar
+						  </button>
+                         
+						  <p class='form_msjExito' id='form_msjExito'> <i class="fas fa-check-circle"></i><b> Formulario enviado exitosamente! </b></p>
+					 </div>
+						   
+				  </form>
+
 				</div>
+				
 			</section>
+
 		</main>
 		<footer class="pie_pagina">
 			<p>&copy Codo a Codo 2023</p>
 		</footer>
+
+		
+<script src="\js\contacto.js"> </script>
+ <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
 	</body>
 </html>
+
