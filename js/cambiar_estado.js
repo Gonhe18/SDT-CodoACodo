@@ -1,5 +1,7 @@
+
 import { formatoFecha, apiTiempo } from "./extras.js";
 import { validacionBlur } from "./validaciones.js";
+
 
 const form_cambio_estado = document.getElementById("form_cambio_estado");
 const ID_TRAMITE = localStorage.getItem("id_tramite");

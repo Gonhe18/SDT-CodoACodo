@@ -1,6 +1,8 @@
 //CREAR NUEVO TRÁMITE
+
 import { formatoFecha, apiTiempo } from "./extras.js";
 import { validacionBlur } from "./validaciones.js";
+
 
 let form_nuevo = document.getElementById("form_nuevo");
 
