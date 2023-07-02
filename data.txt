@@ -1,0 +1,6 @@
+mejorar api ?? no convence en mobile
+
+
+terminar de hacerlo responsive
+en footer agregar un mapa con una direccion famosa y poner los datos
+armar footer con leyemda, mapa y btn contacto
