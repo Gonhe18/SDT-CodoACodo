@@ -6,7 +6,7 @@ let mapa = document.getElementById("mapa");
 let tb_cambio_estado = document.getElementById("tb_cambio_estado");
 let form_cambio_estado = document.getElementById("form_cambio_estado");
 
-const URL = "http://gbazzani.pythonanywhere.com/";
+const URL = "https://gbazzani.pythonanywhere.com/";
 // const URL = "http://127.0.0.1:5000/";
 
 window.addEventListener("load", (e) => {

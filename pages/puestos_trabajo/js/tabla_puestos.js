@@ -6,7 +6,7 @@ let mostrar_mapa = document.getElementById("mostrar_mapa");
 let mapa = document.getElementById("mapa");
 let form_nuevo = document.getElementById("form_nuevo");
 
-const URL = "http://gbazzani.pythonanywhere.com/";
+const URL = "https://gbazzani.pythonanywhere.com/";
 // const URL = "http://127.0.0.1:5000/";
 
 window.addEventListener("load", (e) => {
