@@ -62,22 +62,22 @@
 				<div class="contenedor_gral">
 					<h1 class="tit_principal">Gestión de trámites</h1>
 					<div class="contenedor_btn">
-						<a href="pages/nuevo_tramite.html" class="btn_nuevo"
+						<a href="/pages/tramites/alta_tramites.html" class="btn_nuevo"
 							>Nuevo trámite</a
 						>
 					</div>
 					<div id="bloque_tabla">
 						<table class="tabla oculto" id="tabla">
-							<thead class="encabezado_tabla">
+							<thead class="encabezado_tabla_home">
 								<tr>
 									<th>N° trámite</th>
-									<th>Nombre</th>
-									<th>Fecha modif</th>
+									<th>Trámite</th>
+									<th>Área asignada</th>
 									<th>Estado</th>
 									<th>Acción</th>
 								</tr>
 							</thead>
-							<tbody class="cuerpo_tabla" id="body_home"></tbody>
+							<tbody class="cuerpo_tabla_home" id="body_home"></tbody>
 						</table>
 					</div>
 				</div>
@@ -119,7 +119,7 @@
 
 		<!-- JS -->
 
-		<script src="/js/index.js" type="module"></script>
+		<script src="/pages/tramites/js/index.js" type="module"></script>
 
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script>
