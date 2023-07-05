@@ -7,8 +7,8 @@ let form_edit = document.getElementById("form_edit");
 let estado_tramite = document.getElementById("estado_tramite");
 let descripcion = document.getElementById("descripcion");
 
-// const URL = "http://gbazzani.pythonanywhere.com/";
-const URL = "http://127.0.0.1:5000/";
+const URL = "http://gbazzani.pythonanywhere.com/";
+// const URL = "http://127.0.0.1:5000/";
 
 window.addEventListener("load", (e) => {
 	e.preventDefault();
