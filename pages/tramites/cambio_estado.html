@@ -4,12 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SDT - Nuevo trámite</title>
+		<title>SDT - Cambio de estado</title>
 
 		<!-- CSS General -->
 		<link rel="stylesheet" href="/css/general.css" />
 		<!-- Menú navegación -->
 		<link rel="stylesheet" href="/css/menu_navegacion.css" />
+		<link rel="stylesheet" href="/css/tabla.css" />
 	</head>
 	<body>
 		<header class="encabezado">
@@ -57,83 +58,60 @@
 		<main class="contenedor">
 			<section class="estructura_contenido">
 				<div class="contenedor_gral">
-					<h1 class="tit_principal">Nuevo Trámite</h1>
+					<h1 class="tit_principal">Cambio de estado</h1>
+					<table class="tabla">
+						<thead class="encabezado_tabla_cambio_estado">
+							<tr>
+								<th>N° trámite</th>
+								<th>Solicitante</th>
+								<th>Área asignada</th>
+								<th>Estado</th>
+							</tr>
+						</thead>
+						<tbody
+							class="cuerpo_tabla_cambio_estado"
+							id="tb_cambio_estado"
+						></tbody>
+					</table>
+
 					<form
-						action="nuevo_tramite.html"
+						action="/pages/tramites/cambio_estado.html"
 						method="post"
 						class="contenedor_form"
-						id="form_nuevo"
+						id="form_cambio_estado"
 					>
-						<div class="bloque_datos">
-							<div class="bloque_campos">
-								<label class="label_form" for="nombre">Nombre</label>
-								<input
-									type="text"
-									name="nombre"
-									id="nombre"
-									class="input_form"
-									placeholder="Ingrese su nombre"
-									data-validacion='["required"]'
-								/>
-								<span class="hidden" id="error_nombre"></span>
-							</div>
-							<div class="bloque_campos">
-								<label class="label_form" for="apellido"
-									>Apellido</label
-								>
-								<input
-									type="text"
-									name="apellido"
-									id="apellido"
-									class="input_form"
-									placeholder="Ingrese su apellido"
-									data-validacion='["required"]'
-								/>
-								<span class="hidden" id="error_apellido"></span>
-							</div>
-							<div class="bloque_campos">
-								<label class="label_form" for="email">Email</label>
-								<input
-									type="email"
-									name="email"
-									id="email"
-									class="input_form"
-									placeholder="Ingrese su email"
-									data-validacion='["required","email"]'
-								/>
-								<span class="hidden" id="error_email"></span>
-							</div>
-							<div class="bloque_campos">
-								<label class="label_form" for="telefono"
-									>Telefóno</label
-								>
-								<input
-									type="number"
-									name="telefono"
-									id="telefono"
-									class="input_form"
-									placeholder="Ingrese su número de teléfono"
-									data-validacion='["required","min:8","max:10"]'
-								/>
-								<span class="hidden" id="error_telefono"></span>
-							</div>
-						</div>
 						<div class="bloque_descripcion">
 							<div class="bloque_campos">
-								<label class="label_form" for="asunto">Asunto</label>
+								<label class="label_form" for="estado"
+									>Estado trámite</label
+								>
+								<select
+									name="estado"
+									id="estado"
+									class="input_form"
+									data-validacion='["required"]'
+								>
+									<option value="">Elija un estado</option>
+								</select>
+								<span class="hidden" id="error_estado"></span>
+							</div>
+							<div class="bloque_campos">
+								<label class="label_form" for="motivo"
+									>Motivo respuesta</label
+								>
 								<input
 									type="text"
-									name="asunto"
-									id="asunto"
+									name="motivo"
+									id="motivo"
 									class="input_form"
-									placeholder="Ingrese el asunto de su trámite"
+									placeholder="Ingrese la resolución del trámite"
 									data-validacion='["required"]'
 								/>
-								<span class="hidden" id="error_asunto"></span>
+								<span class="hidden" id="error_motivo"></span>
 							</div>
 							<div class="bloque_campos">
 								<label class="label_form" for="descripcion"
-									>Descripción</label
+									>Descripción respuesta</label
 								>
 								<textarea
 									name="descripcion"
@@ -141,16 +119,14 @@
 									cols="30"
 									rows="10"
 									class="textarea_form"
-									placeholder="Ingrese una descripción de su trámite"
+									placeholder="Ingrese una descripción de la resolución del trámite"
 									data-validacion='["required","min:4"]'
 								></textarea>
 								<span class="hidden" id="error_descripcion"></span>
 							</div>
 						</div>
 						<div class="btn_form">
-							<button class="btn_guardar" id="guardar_nuevo">
-								Crear
-							</button>
+							<button class="btn_guardar">Actualizar</button>
 							<a href="/index.html" class="btn_volver">Volver</a>
 						</div>
 					</form>
@@ -159,9 +135,6 @@
 		</main>
 		<footer class="pie_pagina">
 			<p>&copy Codo a Codo 2023</p>
-			<div class="contenedor_contacto">
-				<a href="/pages/contacto.html" class="btn_contacto">Contacto</a>
-			</div>
 			<div class="contenedor_mapa">
 				<div class="info_mapa">
 					<p>Av. Eduardo Madero 470, C1106 CABA</p>
@@ -195,8 +168,7 @@
 		<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
 		<!-- JS -->
-		<script src="/js/nuevo_tramite.js" type="module"></script>
-
+		<script src="/pages/tramites/js/cambio_tramite.js" type="module"></script>
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 		<script>
 			$(".hide").on("click", function () {
