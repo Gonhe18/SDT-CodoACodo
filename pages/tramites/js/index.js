@@ -121,6 +121,7 @@ const eliminar = (tramite_id) => {
 						icon: "success",
 						title: `${response.message}`,
 					});
+					location.href = "/index.html";
 				});
 		}
 	});
